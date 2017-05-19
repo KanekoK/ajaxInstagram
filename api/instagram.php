@@ -2,7 +2,7 @@
 header("Content-Type: application/json; utf-8");
 
 function return_data_json() {
-    $myAccessToken = '1323301221.9ea525c.49f16b7a42314218826fe520037321e3'; //実際のアクセストークンを入力
+    $myAccessToken = '〇〇〇〇〇〇〇〇〇〇〇〇'; //実際のアクセストークンを入力
 
     $json = file_get_contents('https://api.instagram.com/v1/users/self/media/recent/?access_token='.$myAccessToken);
 
