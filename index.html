@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=`device-width`, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Instagram Ajax</title>
+  <script src="jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<h1>Instagram Ajax</h1>
+<button class="add-item">Add</button>
+<ul></ul>
+
+
+<script>
+
+var $ul = $('ul');
+var count = 0;
+
+$('.add-item').on('click', function(e) {
+  e.preventDefault();
+  $.ajax('/api/instagram.php')
+  .then(function(datas) {
+    $ul.append('<li><img src="'+datas[count].img_url+'"></li>');
+    $ul.append('<li><img src="'+datas[count+1].img_url+'"></li>');
+    $ul.append('<li><img src="'+datas[count+2].img_url+'"></li>');
+    count += 3;
+  }).catch(function(err) {
+    console.log(err);
+  });
+});
+
+</script>
+</body>
+</html>
