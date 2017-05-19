@@ -22,9 +22,15 @@ $('.add-item').on('click', function(e) {
   e.preventDefault();
   $.ajax('./api/instagram.php')
   .then(function(datas) {
-    $ul.append('<li><img src="'+datas[count].img_url+'"></li>');
-    $ul.append('<li><img src="'+datas[count+1].img_url+'"></li>');
-    $ul.append('<li><img src="'+datas[count+2].img_url+'"></li>');
+    if (datas[count]) {
+      $ul.append('<li><img src="'+datas[count].img_url+'"></li>');
+    }
+    if (datas[count + 1]) {
+      $ul.append('<li><img src="'+datas[count + 1].img_url+'"></li>');
+    }
+    if (datas[count + 2]) {
+      $ul.append('<li><img src="'+datas[count + 2].img_url+'"></li>');
+    }
     count += 3;
   }).catch(function(err) {
     console.log(err);
