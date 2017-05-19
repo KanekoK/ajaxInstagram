@@ -20,7 +20,7 @@ var count = 0;
 
 $('.add-item').on('click', function(e) {
   e.preventDefault();
-  $.ajax('/api/instagram.php')
+  $.ajax('./api/instagram.php')
   .then(function(datas) {
     $ul.append('<li><img src="'+datas[count].img_url+'"></li>');
     $ul.append('<li><img src="'+datas[count+1].img_url+'"></li>');
